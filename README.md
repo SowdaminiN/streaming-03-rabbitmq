@@ -1,3 +1,4 @@
+# Sowdamini Nandigama - 09/08/2023
 # streaming-03-rabbitmq
 
 > Get started with RabbitMQ, a message broker, that enables multiple processes to communicate reliably through an intermediary.
@@ -101,7 +102,7 @@ We can execute additional commands in the terminal as soon as it finishes.
 1. Run the file.
 
 You'll need to fix an error in the program to get it to run.
-Once it runs successfully, will it terminate on its own? How do you know? 
+Once it runs successfully, will it terminate on its own? How do you know? - We will have to use ctrl-c to end the process
 As long as the process is running, we cannot use this terminal for other commands. 
 
 ## Task 8. Open a New Terminal / Emit More Messages
@@ -112,13 +113,15 @@ As long as the process is running, we cannot use this terminal for other command
 
 Sending the same message each time is kind of boring. This time:
 
-1. Where is the message defined? How can you change it?
+1. Where is the message defined? How can you change it? - Change is defined in v1_emit_message.py, v1_listen_for_messages.py
 1. Modify emit_message.py to emit a different message. 
 1. Execute the updated emit_message.py. 
 1. Watch what happens in the listening terminal.
 
 Repeat this process several times - emit at least 4 different messages.
 Don't worry - it's just code. We can always revert back (try the 'undo' command in VS Code) to a version that works. You can't hurt anything.
+
+![Exploring the split terminal](./images/read_me_1.PNG)
 
 ## Task 9. Save Time & Effort: Don't Repeat Yourself
 

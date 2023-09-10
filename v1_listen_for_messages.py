@@ -1,5 +1,5 @@
 """
-
+Sowdamini Nandigama
 Listens for messages on the queue.
 This process runs continuously. 
 
@@ -30,13 +30,15 @@ import pika, sys, os
 # define a main function to run the program
 def main():
     # create a blocking connection to the RabbitMQ server
-    connection = pika.BlockingConnection(
-        pika.ConnectionParameters(host="looooocalhost")
-    )
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host="localhost"))
     # use the connection to create a communication channel
     channel = connection.channel()
     # use the channel to declare a queue
     channel.queue_declare(queue="hello")
+    channel.queue_declare(queue="A")
+    channel.queue_declare(queue="B")
+    channel.queue_declare(queue="C")
+    channel.queue_declare(queue="D")
 
     # define a callback function to be called when a message is received
     def callback(ch, method, properties, body):
@@ -44,6 +46,10 @@ def main():
 
     # use the channel to consume messages from the queue
     channel.basic_consume(queue="hello", on_message_callback=callback, auto_ack=True)
+    channel.basic_consume(queue="A", on_message_callback=callback, auto_ack=True)
+    channel.basic_consume(queue="B", on_message_callback=callback, auto_ack=True)
+    channel.basic_consume(queue="C", on_message_callback=callback, auto_ack=True)
+    channel.basic_consume(queue="D", on_message_callback=callback, auto_ack=True)
     # print a message to the console for the user
     print(" [*] Waiting for messages. To exit press CTRL+C")
     # start consuming messages
